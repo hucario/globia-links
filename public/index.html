@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head>
+		<meta charset="utf-8">
+		<title>Globia Links</title>
+		<link rel="stylesheet" href="./discordInvite.css"/>
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+<body>
+  <main>
+<div>
+	<div>
+  <h1>Globia Discord</h1>
+	<div id="discordInviteBox"></div>
+  </div>
+  </div>
+  <div>
+  <div>
+    <h1>Globia IP</h1>
+    <div>
+    <code>51.79.117.83:25632</code><button id="actionCall1" class="js-emailcopybtn callToAction">Copy</button>
+    </div>
+  </div>
+  </div>
+  <div>
+  <div>
+    <h1><a href="http://51.79.117.83:2100/index.html?">Globia Dynamap</a></h1>
+  </div>
+  </div>
+  </main>
+<script src="./discordInvite.js"></script>
+<script>
+  discordInvite.init({
+  inviteCode: 'b9m7hFA',
+  title: 'Globia',
+});
+discordInvite.render();
+
+var copyEmailBtn = document.querySelector('.js-emailcopybtn');  
+copyEmailBtn.addEventListener('click', function(event) {  
+  // Select the email link anchor text  
+  var emailLink = document.querySelector('code');  
+  var range = document.createRange();  
+  range.selectNode(emailLink);  
+  window.getSelection().addRange(range);  
+
+  try {  
+    // Now that we've selected the anchor text, execute the copy command  
+    var successful = document.execCommand('copy');  
+    var msg = successful ? 'successful' : 'unsuccessful';  
+    console.log('Copy email command was ' + msg);  
+  } catch(err) {  
+    console.log('Oops, unable to copy');  
+  }  
+
+  // Remove the selections - NOTE: Should use
+  // removeRange(range) when it is supported  
+  window.getSelection().removeAllRanges();  
+  document.getElementById('actionCall1').classList.add('callToAction-clicked');
+  document.getElementById('actionCall1').innerText = 'Copied';
+});
+</script>
+</body>
+</html>
